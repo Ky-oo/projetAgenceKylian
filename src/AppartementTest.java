@@ -9,7 +9,6 @@ public class AppartementTest {
         TypePiece chambre = new TypePiece(TypePiece.CHAMBRE, true, true);
         TypePiece salon = new TypePiece(TypePiece.SALON, true, true);
         TypePiece cuisine = new TypePiece(TypePiece.CUISINE, true, false);
-        TypePiece salleDeBain = new TypePiece(TypePiece.SALLE_DE_BAIN, true, false);
         
         Appartement testAppart = new Appartement("4 rue test", "Annecy", "74000", null, "2", false);
         
