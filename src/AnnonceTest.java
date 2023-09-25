@@ -1,16 +1,18 @@
 import static org.junit.Assert.assertEquals;
 
+import java.text.DecimalFormat;
+
 import org.junit.Test;
 
 public class AnnonceTest {
     @Test
-    public void testPrix() {
+    public void testPrixMaison() {
 
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
         Vendeur vendeur = new Vendeur("Patry", "Kylian", "Kylian.test@test.fr", "0606060606");
         TypePiece chambre = new TypePiece(TypePiece.CHAMBRE, true, true);
         TypePiece salon = new TypePiece(TypePiece.SALON, true, true);
         TypePiece cuisine = new TypePiece(TypePiece.CUISINE, true, false);
-        TypePiece salleDeBain = new TypePiece(TypePiece.SALLE_DE_BAIN, true, false);
         TypePiece Wc = new TypePiece(TypePiece.WC, true, false);
         TypePiece Garage = new TypePiece(TypePiece.GARAGE, false, false);
         TypePiece Cave = new TypePiece(TypePiece.CAVE, false, false);
@@ -28,6 +30,7 @@ public class AnnonceTest {
 
         Annonce testAnnonce = new Annonce("A0514532FS", "25/09/2023", "Grande maison Test", 250, testAnnonceMaison);
 
-        assertEquals(null, 19186.836143134642, testAnnonce.prix(), 0);
+        String prixAnnonceTest = numberFormat.format(testAnnonce.prix());
+        assertEquals("19186,84", prixAnnonceTest);
     }
 }

@@ -1,10 +1,14 @@
 import static org.junit.Assert.assertEquals;
 
+import java.text.DecimalFormat;
+
 import org.junit.Test;
 
 public class BienImmobilierTest {
 
 
+        
+        DecimalFormat numberFormat = new DecimalFormat("#.00");
         Vendeur vendeur = new Vendeur("Patry", "Kylian", "Kylian.test@test.fr", "0606060606");
         TypePiece chambre = new TypePiece(TypePiece.CHAMBRE, true, true);
         TypePiece salon = new TypePiece(TypePiece.SALON, true, true);
@@ -16,7 +20,7 @@ public class BienImmobilierTest {
 
 
     @Test
-    public void testSurfaceHabitableMaison() {
+    public void testSurfaceHabitableMaison6PieceHabitable2PieceNonHabitable() {
 
         BienImmobilier testBienImmobilier = new Maison("4 rue des tests", "Annecy", "74000", vendeur, 250);
 
@@ -29,12 +33,12 @@ public class BienImmobilierTest {
         testBienImmobilier.ajouterPiece(new PieceQuadrilatere(Cave, "-1", 3, 3));
         testBienImmobilier.ajouterPiece(new PieceQuadrilatere(Garage, "-1", 4, 3));
 
-        assertEquals(null, 71.49734457253857, testBienImmobilier.surfaceHabitable(), 0);
+        assertEquals( "71,50", numberFormat.format(testBienImmobilier.surfaceHabitable()));
 
     }
 
     @Test
-    public void testSurfaceNonHabitable() {
+    public void testSurfaceNonHabitable6PieceHabitable2PieceNonHabitable() {
 
         BienImmobilier testBienImmobilier = new Maison("4 rue des tests", "Annecy", "74000", vendeur, 250);
 
@@ -46,7 +50,7 @@ public class BienImmobilierTest {
         testBienImmobilier.ajouterPiece(new PieceQuadrilatere(Wc, "0", 1.5, 2));
         testBienImmobilier.ajouterPiece(new PieceQuadrilatere(Cave, "-1", 3, 3));
         testBienImmobilier.ajouterPiece(new PieceQuadrilatere(Garage, "-1", 4, 3));
-        assertEquals(null, 21.0, testBienImmobilier.surfaceNonHabitable(), 0);
+        assertEquals("21,00", numberFormat.format(testBienImmobilier.surfaceNonHabitable()));
 
 
         }
