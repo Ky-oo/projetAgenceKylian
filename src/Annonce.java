@@ -5,7 +5,7 @@ public class Annonce {
     private String titre;
     private double prixM2Habitable;
     private BienImmobilier logement;
-    public static double COEF_NON_HABITABLE = 0.25;
+    public static final double COEF_NON_HABITABLE = 0.25;
 
 
     public Annonce(String reference, String date, String titre, double prixM2Habitable, BienImmobilier logement) {
