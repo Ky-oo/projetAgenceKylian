@@ -52,14 +52,20 @@ public abstract class BienImmobilier {
 
     @Override
     public String toString() {
+        
         DecimalFormat numberFormat = new DecimalFormat("#.00");
-        return "\nLocalisation : " +rue +" " + codePostal+ " " + ville + 
-        "\n \n Description du bien : \n" +
-        pieces.toString()  +  
-        "\nPour une surface habitable de : " + 
+        String phrase = "\nLocalisation : " +rue +" " + codePostal+ " " + ville + "\n \n Description du bien : \n";
+
+        for (Piece piece : pieces) {
+            phrase = phrase + "- " + piece.toString();
+        }
+           
+        phrase = phrase + "\nPour une surface habitable de : " + 
         numberFormat.format(surfaceHabitable())+ 
         " m2 et une surface non habitable de : " + 
         numberFormat.format(surfaceNonHabitable())+" m2.";
+
+        return phrase;
     }
 
 }
